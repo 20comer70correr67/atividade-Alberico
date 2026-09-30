@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyFlow - Organização de Estudos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <span>📚</span>
+        <h1>StudyFlow</h1>
+    </div>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#tarefas">Tarefas</a>
+        <a href="#cronograma">Cronograma</a>
+        <a href="#materiais">Materiais</a>
+    </nav>
+
+    <button class="notification" onclick="mostrarNotificacoes()">
+        🔔 <span id="contador">3</span>
+    </button>
+</header>
+
+<main>
+
+    <!-- INÍCIO -->
+    <section id="inicio" class="hero">
+        <div>
+            <span class="tag">📖 ORGANIZE SEUS ESTUDOS</span>
+
+            <h2>
+                Estude melhor.<br>
+                <strong>Organize seu futuro.</strong>
+            </h2>
+
+            <p>
+                O StudyFlow ajuda estudantes a organizar tarefas,
+                provas, materiais e horários em um só lugar.
+            </p>
+
+            <button class="primary" onclick="irParaTarefas()">
+                Começar agora →
+            </button>
+        </div>
+
+        <div class="hero-card">
+            <div class="card-top">
+                <span>Seu progresso</span>
+                <span>🎯</span>
+            </div>
+
+            <div class="progress-circle">
+                <span>75%</span>
+            </div>
+
+            <p>Você está indo muito bem!</p>
+        </div>
+    </section>
+
+
+    <!-- DASHBOARD -->
+    <section class="dashboard">
+
+        <div class="section-title">
+            <div>
+                <span class="small-title">VISÃO GERAL</span>
+                <h2>Seu painel</h2>
+            </div>
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-card">
+                <div class="icon purple">📚</div>
+                <div>
+                    <span>Tarefas</span>
+                    <h3 id="totalTarefas">6</h3>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="icon blue">✅</div>
+                <div>
+                    <span>Concluídas</span>
+                    <h3 id="concluidas">4</h3>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="icon orange">⏰</div>
+                <div>
+                    <span>Pendentes</span>
+                    <h3 id="pendentes">2</h3>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="icon green">🎯</div>
+                <div>
+                    <span>Progresso</span>
+                    <h3>75%</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- TAREFAS -->
+    <section id="tarefas">
+
+        <div class="section-title">
+            <div>
+                <span class="small-title">ORGANIZAÇÃO</span>
+                <h2>Minhas tarefas</h2>
+            </div>
+
+            <button class="primary" onclick="abrirModal()">
+                + Nova tarefa
+            </button>
+        </div>
+
+        <div class="tasks" id="listaTarefas">
+
+            <div class="task">
+                <input type="checkbox" onchange="concluirTarefa(this)">
+                <div>
+                    <h3>Estudar Matemática</h3>
+                    <p>Equações do 2º grau</p>
+                </div>
+                <span class="date">Hoje</span>
+            </div>
+
+            <div class="task">
+                <input type="checkbox" onchange="concluirTarefa(this)">
+                <div>
+                    <h3>Trabalho de História</h3>
+                    <p>Revolução Industrial</p>
+                </div>
+                <span class="date">Amanhã</span>
+            </div>
+
+            <div class="task completed">
+                <input type="checkbox" checked onchange="concluirTarefa(this)">
+                <div>
+                    <h3>Revisão de Geografia</h3>
+                    <p>Globalização</p>
+                </div>
+                <span class="date">Concluída</span>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CRONOGRAMA -->
+    <section id="cronograma">
+
+        <div class="section-title">
+            <div>
+                <span class="small-title">PLANEJAMENTO</span>
+                <h2>Meu cronograma</h2>
+            </div>
+        </div>
+
+        <div class="schedule">
+
+            <div class="day">
+                <span>SEG</span>
+                <strong>30</strong>
+                <div class="lesson purple-bg">
+                    <b>Matemática</b>
+                    <small>14:00 - 15:00</small>
+                </div>
+            </div>
+
+            <div class="day">
+                <span>TER</span>
+                <strong>01</strong>
+                <div class="lesson blue-bg">
+                    <b>História</b>
+                    <small>15:00 - 16:00</small>
+                </div>
+            </div>
+
+            <div class="day">
+                <span>QUA</span>
+                <strong>02</strong>
+                <div class="lesson green-bg">
+                    <b>Geografia</b>
+                    <small>14:00 - 15:00</small>
+                </div>
+            </div>
+
+            <div class="day">
+                <span>QUI</span>
+                <strong>03</strong>
+                <div class="lesson orange-bg">
+                    <b>Português</b>
+                    <small>16:00 - 17:00</small>
+                </div>
+            </div>
+
+            <div class="day">
+                <span>SEX</span>
+                <strong>04</strong>
+                <div class="lesson purple-bg">
+                    <b>Química</b>
+                    <small>14:00 - 15:00</small>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- MATERIAIS -->
+    <section id="materiais">
+
+        <div class="section-title">
+            <div>
+                <span class="small-title">CONTEÚDOS</span>
+                <h2>Materiais de estudo</h2>
+            </div>
+        </div>
+
+        <div class="materials">
+
+            <div class="material">
+                <span>📐</span>
+                <div>
+                    <h3>Matemática</h3>
+                    <p>Equações e funções</p>
+                </div>
+                <button onclick="abrirMaterial('Matemática')">Abrir</button>
+            </div>
+
+            <div class="material">
+                <span>🌎</span>
+                <div>
+                    <h3>Geografia</h3>
+                    <p>Globalização e meio ambiente</p>
+                </div>
+                <button onclick="abrirMaterial('Geografia')">Abrir</button>
+            </div>
+
+            <div class="material">
+                <span>📜</span>
+                <div>
+                    <h3>História</h3>
+                    <p>Revoluções e sociedade</p>
+                </div>
+                <button onclick="abrirMaterial('História')">Abrir</button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- EQUIPE -->
+    <section class="team">
+
+        <div class="section-title">
+            <div>
+                <span class="small-title">PROJETO</span>
+                <h2>Equipe StudyFlow</h2>
+            </div>
+        </div>
+
+        <div class="team-grid">
+
+            <div class="member">
+                <div class="avatar">👨‍💻</div>
+                <h3>Frontend</h3>
+                <p>Interface e experiência do usuário</p>
+            </div>
+
+            <div class="member">
+                <div class="avatar">⚙️</div>
+                <h3>Backend</h3>
+                <p>API e regras do sistema</p>
+            </div>
+
+            <div class="member">
+                <div class="avatar">🗄️</div>
+                <h3>Banco de Dados</h3>
+                <p>Armazenamento das informações</p>
+            </div>
+
+            <div class="member">
+                <div class="avatar">📱</div>
+                <h3>Mobile</h3>
+                <p>Aplicativo para celulares</p>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+<footer>
+    <div>
+        <h2>📚 StudyFlow</h2>
+        <p>Organizando seus estudos, um passo de cada vez.</p>
+    </div>
+
+    <p>© 2026 StudyFlow</p>
+</footer>
+
+
+<!-- MODAL NOVA TAREFA -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <button class="close" onclick="fecharModal()">×</button>
+
+        <h2>Nova tarefa</h2>
+        <p>Adicione uma nova atividade aos seus estudos.</p>
+
+        <input id="nomeTarefa" type="text" placeholder="Nome da tarefa">
+
+        <input id="materiaTarefa" type="text" placeholder="Matéria">
+
+        <button class="primary" onclick="adicionarTarefa()">
+            Adicionar tarefa
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- NOTIFICAÇÕES -->
+
+<div class="notifications" id="notifications">
+
+    <h3>🔔 Notificações</h3>
+
+    <div>
+        📚 Prova de Matemática amanhã.
+    </div>
+
+    <div>
+        ⏰ Trabalho de História vence em 2 dias.
+    </div>
+
+    <div>
+        🎯 Você atingiu 75% de progresso!
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
